@@ -15,7 +15,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: 'query',
-      fileName: 'index',
+      fileName: (format) => `index.${format === 'es' ? 'js' : 'umd.cjs'}`
     },
     rollupOptions: {
       external: ['vue', '@inertiajs/vue3', 'axios'],
